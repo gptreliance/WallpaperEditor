@@ -1,0 +1,193 @@
+/* style.css */
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #fff;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  align-items: center;
+  justify-content: flex-start;
+  touch-action: none;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #222;
+    color: #fff;
+  }
+  #controls {
+    background-color: #333;
+  }
+  #controls button {
+    background-color: #666;
+    color: #fff;
+  }
+  #controls button:hover {
+    background-color: #888;
+  }
+  #controls label[for="backgroundColor"],
+  #controls label[for="bgHex"],
+  #controls label[for="bgRgb"] {
+    background-color: rgba(255,255,255,0.1);
+  }
+}
+
+#controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 10px;
+  gap: 10px;
+  align-items: center;
+  max-width: 100%;
+  width: 100%;
+  background-color: #eee;
+  margin-top: 20px;
+  overflow-y: auto;
+  max-height: 30vh;
+}
+
+.control-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: rgba(0,0,0,0.05);
+}
+
+.transform-controls {
+  background-color: rgba(0,100,200,0.1);
+}
+
+#controls input[type="text"],
+#controls input[type="number"],
+#controls input[type="color"] {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin: 5px;
+  width: 100px;
+}
+
+#controls input[type="text"],
+#controls input[type="number"] {
+  max-width: 120px;
+}
+
+#controls button {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s;
+  user-select: none;
+}
+
+#controls button:hover {
+  background-color: #45a049;
+}
+
+/* Special buttons */
+#export {
+  background-color: #2196F3;
+}
+#export:hover {
+  background-color: #0b7dda;
+}
+
+#autoColorBtn {
+  background-color: #9C27B0;
+}
+#autoColorBtn:hover {
+  background-color: #7B1FA2;
+}
+
+#eyedropperBtn {
+  background-color: #FF9800;
+}
+#eyedropperBtn:hover {
+  background-color: #F57C00;
+}
+
+.transform-controls button {
+  background-color: #607D8B;
+}
+.transform-controls button:hover {
+  background-color: #455A64;
+}
+
+#canvasContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 70vh;
+  padding: 10px;
+  background-color: #f5f5f5;
+  overflow: hidden;
+  position: relative;
+  touch-action: none;
+}
+
+canvas {
+  background-color: transparent;
+  display: block;
+  margin: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  image-rendering: crisp-edges;
+  touch-action: none;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 600px) {
+  #controls {
+    flex-direction: column;
+    align-items: stretch;
+    max-height: 40vh;
+  }
+
+  #controls input[type="text"],
+  #controls input[type="number"],
+  #controls input[type="color"] {
+    width: 100%;
+  }
+
+  #controls button {
+    width: 100%;
+  }
+  
+  .control-group {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  #canvasContainer {
+    height: 60vh;
+  }
+}
+
+/* Pinch-zoom indicator */
+#zoomIndicator {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0,0,0,0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  z-index: 10;
+  display: none;
+}

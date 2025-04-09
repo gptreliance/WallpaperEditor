@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Wallpaper Creator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="controls">
+    <label>
+      Upload Image:
+      <input type="file" id="upload" accept="image/*">
+    </label>
+    <div class="control-group">
+      <label>
+        Width:
+        <input type="number" id="manualWidth" placeholder="Width" min="1">
+      </label>
+      <label>
+        Height:
+        <input type="number" id="manualHeight" placeholder="Height" min="1">
+      </label>
+      <button id="setManual">Set Size</button>
+      <label>
+        <input type="checkbox" id="expand"> Expand 10%
+      </label>
+    </div>
+    
+    <div class="control-group">
+      <label>
+        BG Color:
+        <input type="color" id="backgroundColor" value="#ffffff">
+      </label>
+      <label>
+        Hex:
+        <input type="text" id="bgHex" placeholder="#FFFFFF" pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$">
+      </label>
+      <label>
+        RGB:
+        <input type="text" id="bgRgb" placeholder="255,255,255" pattern="^\d{1,3},\d{1,3},\d{1,3}$">
+      </label>
+      <button id="autoColorBtn">Auto Color</button>
+      <button id="eyedropperBtn">Eyedropper</button>
+    </div>
+    
+    <div class="control-group transform-controls">
+      <button id="zoomIn">Zoom In</button>
+      <button id="zoomOut">Zoom Out</button>
+      <button id="rotateLeft">↺ Rotate</button>
+      <button id="rotateRight">↻ Rotate</button>
+      <button id="skewX">Skew X</button>
+      <button id="skewY">Skew Y</button>
+      <button id="resetTransform">Reset</button>
+    </div>
+    
+    <button id="export">Export Wallpaper</button>
+  </div>
+  <div id="canvasContainer">
+    <canvas id="wallpaperCanvas"></canvas>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
